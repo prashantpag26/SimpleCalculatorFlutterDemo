@@ -50,7 +50,10 @@ class _SimpleCalculatorScreenState extends State<SimpleCalculatorScreen> {
                   child: Container(
                     alignment: Alignment.bottomRight,
                     padding: EdgeInsets.all(32),
-                    child: Text("Testing",style: TextStyle(color: Colors.white,fontSize: 30),),
+                    child: Text(
+                      "Testing",
+                      style: TextStyle(color: Colors.white, fontSize: 30),
+                    ),
                   ),
                   flex: 5,
                 ),
@@ -62,374 +65,30 @@ class _SimpleCalculatorScreenState extends State<SimpleCalculatorScreen> {
                           Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Expanded(
-                                    child: MaterialButton(
-                                  color: Colors.blueAccent,
-                                  padding: EdgeInsets.all(22.5),
-                                  child: Text(
-                                    "7",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 50),
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      double firstValue =
-                                          double.parse(teFirstValue.text);
-                                      double secondValue =
-                                          double.parse(teSecondValue.text);
-                                      double answer = firstValue + secondValue;
-                                      Fluttertoast.showToast(
-                                          msg: "Answer: $answer",
-                                          toastLength: Toast.LENGTH_SHORT,
-                                          gravity: ToastGravity.BOTTOM,
-                                          timeInSecForIosWeb: 1,
-                                          backgroundColor: Colors.red,
-                                          textColor: Colors.white,
-                                          fontSize: 16.0);
-                                    });
-                                  },
-                                )),
-                                Expanded(
-                                    child: MaterialButton(
-                                  color: Colors.blueAccent,
-                                  padding: EdgeInsets.all(22.5),
-                                  child: Text(
-                                    "8",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 50),
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      FocusManager.instance.primaryFocus
-                                          ?.unfocus();
-                                      double firstValue =
-                                          double.parse(teFirstValue.text);
-                                      double secondValue =
-                                          double.parse(teSecondValue.text);
-                                      double answer = firstValue / secondValue;
-                                      Fluttertoast.showToast(
-                                          msg: "Answer: $answer",
-                                          toastLength: Toast.LENGTH_SHORT,
-                                          gravity: ToastGravity.BOTTOM,
-                                          timeInSecForIosWeb: 1,
-                                          backgroundColor: Colors.red,
-                                          textColor: Colors.white,
-                                          fontSize: 16.0);
-                                    });
-                                  },
-                                )),
-                                Expanded(
-                                    child: MaterialButton(
-                                  color: Colors.blueAccent,
-                                  padding: EdgeInsets.all(22.5),
-                                  child: Text(
-                                    "9",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 50),
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      double firstValue =
-                                          double.parse(teFirstValue.text);
-                                      double secondValue =
-                                          double.parse(teSecondValue.text);
-                                      double answer = firstValue - secondValue;
-                                      Fluttertoast.showToast(
-                                          msg: "Answer: $answer",
-                                          toastLength: Toast.LENGTH_SHORT,
-                                          gravity: ToastGravity.BOTTOM,
-                                          timeInSecForIosWeb: 1,
-                                          backgroundColor: Colors.red,
-                                          textColor: Colors.white,
-                                          fontSize: 16.0);
-                                    });
-                                  },
-                                )),
+                                Expanded(child: buildMaterialButton(22.5, "7",Colors.blueAccent)),
+                                Expanded(child: buildMaterialButton(22.5, "8",Colors.blueAccent)),
+                                Expanded(child: buildMaterialButton(22.5, "9",Colors.blueAccent)),
                               ]),
                           Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Expanded(
-                                    child: MaterialButton(
-                                  color: Colors.blueAccent,
-                                  padding: EdgeInsets.all(22.5),
-                                  child: Text(
-                                    "4",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 50),
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      double firstValue =
-                                          double.parse(teFirstValue.text);
-                                      double secondValue =
-                                          double.parse(teSecondValue.text);
-                                      double answer = firstValue + secondValue;
-                                      Fluttertoast.showToast(
-                                          msg: "Answer: $answer",
-                                          toastLength: Toast.LENGTH_SHORT,
-                                          gravity: ToastGravity.BOTTOM,
-                                          timeInSecForIosWeb: 1,
-                                          backgroundColor: Colors.red,
-                                          textColor: Colors.white,
-                                          fontSize: 16.0);
-                                    });
-                                  },
-                                )),
-                                Expanded(
-                                    child: MaterialButton(
-                                  color: Colors.blueAccent,
-                                  padding: EdgeInsets.all(22.5),
-                                  child: Text(
-                                    "5",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 50),
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      FocusManager.instance.primaryFocus
-                                          ?.unfocus();
-                                      double firstValue =
-                                          double.parse(teFirstValue.text);
-                                      double secondValue =
-                                          double.parse(teSecondValue.text);
-                                      double answer = firstValue / secondValue;
-                                      Fluttertoast.showToast(
-                                          msg: "Answer: $answer",
-                                          toastLength: Toast.LENGTH_SHORT,
-                                          gravity: ToastGravity.BOTTOM,
-                                          timeInSecForIosWeb: 1,
-                                          backgroundColor: Colors.red,
-                                          textColor: Colors.white,
-                                          fontSize: 16.0);
-                                    });
-                                  },
-                                )),
-                                Expanded(
-                                    child: MaterialButton(
-                                  color: Colors.blueAccent,
-                                  padding: EdgeInsets.all(22.5),
-                                  child: Text(
-                                    "6",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 50),
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      double firstValue =
-                                          double.parse(teFirstValue.text);
-                                      double secondValue =
-                                          double.parse(teSecondValue.text);
-                                      double answer = firstValue - secondValue;
-                                      Fluttertoast.showToast(
-                                          msg: "Answer: $answer",
-                                          toastLength: Toast.LENGTH_SHORT,
-                                          gravity: ToastGravity.BOTTOM,
-                                          timeInSecForIosWeb: 1,
-                                          backgroundColor: Colors.red,
-                                          textColor: Colors.white,
-                                          fontSize: 16.0);
-                                    });
-                                  },
-                                )),
+                                Expanded(child: buildMaterialButton(22.5, "4",Colors.blueAccent)),
+                                Expanded(child: buildMaterialButton(22.5, "5",Colors.blueAccent)),
+                                Expanded(child: buildMaterialButton(22.5, "6",Colors.blueAccent)),
                               ]),
                           Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Expanded(
-                                    child: MaterialButton(
-                                  color: Colors.blueAccent,
-                                  padding: EdgeInsets.all(22.5),
-                                  child: Text(
-                                    "1",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 50),
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      double firstValue =
-                                          double.parse(teFirstValue.text);
-                                      double secondValue =
-                                          double.parse(teSecondValue.text);
-                                      double answer = firstValue + secondValue;
-                                      Fluttertoast.showToast(
-                                          msg: "Answer: $answer",
-                                          toastLength: Toast.LENGTH_SHORT,
-                                          gravity: ToastGravity.BOTTOM,
-                                          timeInSecForIosWeb: 1,
-                                          backgroundColor: Colors.red,
-                                          textColor: Colors.white,
-                                          fontSize: 16.0);
-                                    });
-                                  },
-                                )),
-                                Expanded(
-                                    child: MaterialButton(
-                                  color: Colors.blueAccent,
-                                  padding: EdgeInsets.all(22.5),
-                                  child: Text(
-                                    "2",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 50),
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      FocusManager.instance.primaryFocus
-                                          ?.unfocus();
-                                      double firstValue =
-                                          double.parse(teFirstValue.text);
-                                      double secondValue =
-                                          double.parse(teSecondValue.text);
-                                      double answer = firstValue / secondValue;
-                                      Fluttertoast.showToast(
-                                          msg: "Answer: $answer",
-                                          toastLength: Toast.LENGTH_SHORT,
-                                          gravity: ToastGravity.BOTTOM,
-                                          timeInSecForIosWeb: 1,
-                                          backgroundColor: Colors.red,
-                                          textColor: Colors.white,
-                                          fontSize: 16.0);
-                                    });
-                                  },
-                                )),
-                                Expanded(
-                                    child: MaterialButton(
-                                  color: Colors.blueAccent,
-                                  padding: EdgeInsets.all(22.5),
-                                  child: Text(
-                                    "3",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 50),
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      double firstValue =
-                                          double.parse(teFirstValue.text);
-                                      double secondValue =
-                                          double.parse(teSecondValue.text);
-                                      double answer = firstValue - secondValue;
-                                      Fluttertoast.showToast(
-                                          msg: "Answer: $answer",
-                                          toastLength: Toast.LENGTH_SHORT,
-                                          gravity: ToastGravity.BOTTOM,
-                                          timeInSecForIosWeb: 1,
-                                          backgroundColor: Colors.red,
-                                          textColor: Colors.white,
-                                          fontSize: 16.0);
-                                    });
-                                  },
-                                )),
+                                Expanded(child: buildMaterialButton(22.5, "1",Colors.blueAccent)),
+                                Expanded(child: buildMaterialButton(22.5, "2",Colors.blueAccent)),
+                                Expanded(child: buildMaterialButton(22.5, "3",Colors.blueAccent)),
                               ]),
                           Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Expanded(
-                                    child: MaterialButton(
-                                  color: Colors.blueAccent,
-                                  padding: EdgeInsets.all(22.5),
-                                  child: Text(
-                                    "0",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 50),
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      double firstValue =
-                                          double.parse(teFirstValue.text);
-                                      double secondValue =
-                                          double.parse(teSecondValue.text);
-                                      double answer = firstValue + secondValue;
-                                      Fluttertoast.showToast(
-                                          msg: "Answer: $answer",
-                                          toastLength: Toast.LENGTH_SHORT,
-                                          gravity: ToastGravity.BOTTOM,
-                                          timeInSecForIosWeb: 1,
-                                          backgroundColor: Colors.red,
-                                          textColor: Colors.white,
-                                          fontSize: 16.0);
-                                    });
-                                  },
-                                )),
-                                Expanded(
-                                    child: MaterialButton(
-                                  color: Colors.blueAccent,
-                                  padding: EdgeInsets.all(22.5),
-                                  child: Text(
-                                    ".",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 50),
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      FocusManager.instance.primaryFocus
-                                          ?.unfocus();
-                                      double firstValue =
-                                          double.parse(teFirstValue.text);
-                                      double secondValue =
-                                          double.parse(teSecondValue.text);
-                                      double answer = firstValue / secondValue;
-                                      Fluttertoast.showToast(
-                                          msg: "Answer: $answer",
-                                          toastLength: Toast.LENGTH_SHORT,
-                                          gravity: ToastGravity.BOTTOM,
-                                          timeInSecForIosWeb: 1,
-                                          backgroundColor: Colors.red,
-                                          textColor: Colors.white,
-                                          fontSize: 16.0);
-                                    });
-                                  },
-                                )),
-                                Expanded(
-                                    child: MaterialButton(
-                                  color: Colors.blueAccent,
-                                  padding: EdgeInsets.all(22.5),
-                                  child: Text(
-                                    "=",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 50),
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      double firstValue =
-                                          double.parse(teFirstValue.text);
-                                      double secondValue =
-                                          double.parse(teSecondValue.text);
-                                      double answer = firstValue - secondValue;
-                                      Fluttertoast.showToast(
-                                          msg: "Answer: $answer",
-                                          toastLength: Toast.LENGTH_SHORT,
-                                          gravity: ToastGravity.BOTTOM,
-                                          timeInSecForIosWeb: 1,
-                                          backgroundColor: Colors.red,
-                                          textColor: Colors.white,
-                                          fontSize: 16.0);
-                                    });
-                                  },
-                                )),
+                                Expanded(child: buildMaterialButton(22.5, "0",Colors.blueAccent)),
+                                Expanded(child: buildMaterialButton(22.5, ".",Colors.blueAccent)),
+                                Expanded(child: buildMaterialButton(22.5, "=",Colors.blueAccent)),
                               ]),
                         ],
                       ),
@@ -443,8 +102,7 @@ class _SimpleCalculatorScreenState extends State<SimpleCalculatorScreen> {
                                     child: ElevatedButton.icon(
                               style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.orangeAccent,
-                                  padding:
-                                      EdgeInsets.fromLTRB(27,20,27,20)),
+                                  padding: EdgeInsets.fromLTRB(27, 20, 27, 20)),
                               icon: const Icon(
                                 Icons.backspace,
                                 color: Colors.white,
@@ -468,130 +126,45 @@ class _SimpleCalculatorScreenState extends State<SimpleCalculatorScreen> {
                               },
                               label: Text(""),
                             ))),
-                            Expanded(
-                                child: MaterialButton(
-                              color: Colors.orangeAccent,
-                              padding: EdgeInsets.all(20),
-                              child: Text(
-                                "÷",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 50),
-                              ),
-                              onPressed: () {
-                                setState(() {
-                                  double firstValue =
-                                      double.parse(teFirstValue.text);
-                                  double secondValue =
-                                      double.parse(teSecondValue.text);
-                                  double answer = firstValue - secondValue;
-                                  Fluttertoast.showToast(
-                                      msg: "Answer: $answer",
-                                      toastLength: Toast.LENGTH_SHORT,
-                                      gravity: ToastGravity.BOTTOM,
-                                      timeInSecForIosWeb: 1,
-                                      backgroundColor: Colors.red,
-                                      textColor: Colors.white,
-                                      fontSize: 16.0);
-                                });
-                              },
-                            )),
-                            Expanded(
-                                child: MaterialButton(
-                              color: Colors.orangeAccent,
-                              padding: EdgeInsets.all(20),
-                              child: Text(
-                                "x",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 50),
-                              ),
-                              onPressed: () {
-                                setState(() {
-                                  double firstValue =
-                                      double.parse(teFirstValue.text);
-                                  double secondValue =
-                                      double.parse(teSecondValue.text);
-                                  double answer = firstValue - secondValue;
-                                  Fluttertoast.showToast(
-                                      msg: "Answer: $answer",
-                                      toastLength: Toast.LENGTH_SHORT,
-                                      gravity: ToastGravity.BOTTOM,
-                                      timeInSecForIosWeb: 1,
-                                      backgroundColor: Colors.red,
-                                      textColor: Colors.white,
-                                      fontSize: 16.0);
-                                });
-                              },
-                            )),
-                            Expanded(
-                                child: MaterialButton(
-                              color: Colors.orangeAccent,
-                              padding: EdgeInsets.all(20),
-                              child: Text(
-                                "-",
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 50),
-                              ),
-                              onPressed: () {
-                                setState(() {
-                                  double firstValue =
-                                      double.parse(teFirstValue.text);
-                                  double secondValue =
-                                      double.parse(teSecondValue.text);
-                                  double answer = firstValue - secondValue;
-                                  Fluttertoast.showToast(
-                                      msg: "Answer: $answer",
-                                      toastLength: Toast.LENGTH_SHORT,
-                                      gravity: ToastGravity.BOTTOM,
-                                      timeInSecForIosWeb: 1,
-                                      backgroundColor: Colors.red,
-                                      textColor: Colors.white,
-                                      fontSize: 16.0);
-                                });
-                              },
-                            )),
-                            Expanded(
-                                child: MaterialButton(
-                                  color: Colors.orangeAccent,
-                                  padding: EdgeInsets.all(20),
-                                  child: Text(
-                                    "+",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 50),
-                                  ),
-                                  onPressed: () {
-                                    setState(() {
-                                      double firstValue =
-                                      double.parse(teFirstValue.text);
-                                      double secondValue =
-                                      double.parse(teSecondValue.text);
-                                      double answer = firstValue - secondValue;
-                                      Fluttertoast.showToast(
-                                          msg: "Answer: $answer",
-                                          toastLength: Toast.LENGTH_SHORT,
-                                          gravity: ToastGravity.BOTTOM,
-                                          timeInSecForIosWeb: 1,
-                                          backgroundColor: Colors.red,
-                                          textColor: Colors.white,
-                                          fontSize: 16.0);
-                                    });
-                                  },
-                                )),
+                            Expanded(child: buildMaterialButton(20, "÷",Colors.orangeAccent)),
+                            Expanded(child: buildMaterialButton(20, "x",Colors.orangeAccent)),
+                            Expanded(child: buildMaterialButton(20, "-",Colors.orangeAccent)),
+                            Expanded(child: buildMaterialButton(20, "+",Colors.orangeAccent)),
                           ],
                         ),
-                        flex: 1
-                    ),
+                        flex: 1),
                   ]),
                   flex: 4,
                 )
               ],
             )));
+  }
+
+  MaterialButton buildMaterialButton(double paddingValue, String buttonText, MaterialAccentColor color) {
+    return MaterialButton(
+      color: color,
+      padding: EdgeInsets.all(paddingValue),
+      child: Text(
+        buttonText,
+        style: TextStyle(
+            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 50),
+      ),
+      onPressed: () {
+        setState(() {
+          FocusManager.instance.primaryFocus?.unfocus();
+          double firstValue = double.parse(teFirstValue.text);
+          double secondValue = double.parse(teSecondValue.text);
+          double answer = firstValue / secondValue;
+          Fluttertoast.showToast(
+              msg: "Answer: $answer",
+              toastLength: Toast.LENGTH_SHORT,
+              gravity: ToastGravity.BOTTOM,
+              timeInSecForIosWeb: 1,
+              backgroundColor: Colors.red,
+              textColor: Colors.white,
+              fontSize: 16.0);
+        });
+      },
+    );
   }
 }
