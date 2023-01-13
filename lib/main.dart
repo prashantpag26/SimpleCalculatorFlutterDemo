@@ -43,6 +43,7 @@ class _SimpleCalculatorScreenState extends State<SimpleCalculatorScreen> {
   final teFirstValue = TextEditingController();
   final teSecondValue = TextEditingController();
   final controller = Get.put(CalculateController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,12 +55,27 @@ class _SimpleCalculatorScreenState extends State<SimpleCalculatorScreen> {
                   child: Container(
                     alignment: Alignment.bottomRight,
                     padding: EdgeInsets.all(32),
-                    child: Text(
-                      "Testing",
-                      style: TextStyle(color: Colors.white, fontSize: 30),
-                    ),
+                    child: Obx(() {
+                      return Text(
+                        controller.inputExpression.value,
+                        style: TextStyle(color: Colors.white, fontSize: 50),
+                      );
+                    }),
                   ),
-                  flex: 5,
+                  flex: 4,
+                ),
+                Expanded(
+                  child: Container(
+                    alignment: Alignment.bottomRight,
+                    padding: EdgeInsets.all(32),
+                    child: Obx(() {
+                      return Text(
+                        controller.output.value,
+                        style: TextStyle(color: Colors.white, fontSize: 30),
+                      );
+                    }),
+                  ),
+                  flex: 1,
                 ),
                 Expanded(
                   child: Row(children: [
@@ -69,30 +85,126 @@ class _SimpleCalculatorScreenState extends State<SimpleCalculatorScreen> {
                           Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Expanded(child: CustomButton(22.5, "7",Colors.blueAccent)),
-                                Expanded(child: CustomButton(22.5, "8",Colors.blueAccent)),
-                                Expanded(child: CustomButton(22.5, "9",Colors.blueAccent)),
+                                Expanded(
+                                    child: CustomButton(
+                                  22.5,
+                                  "7",
+                                  Colors.blueAccent,
+                                  onClick: () {
+                                    controller.addChar("7");
+                                  },
+                                )),
+                                Expanded(
+                                    child: CustomButton(
+                                  22.5,
+                                  "8",
+                                  Colors.blueAccent,
+                                  onClick: () {
+                                    controller.addChar("8");
+                                  },
+                                )),
+                                Expanded(
+                                    child: CustomButton(
+                                  22.5,
+                                  "9",
+                                  Colors.blueAccent,
+                                  onClick: () {
+                                    controller.addChar("9");
+                                  },
+                                )),
                               ]),
                           Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Expanded(child: CustomButton(22.5, "4",Colors.blueAccent)),
-                                Expanded(child: CustomButton(22.5, "5",Colors.blueAccent)),
-                                Expanded(child: CustomButton(22.5, "6",Colors.blueAccent)),
+                                Expanded(
+                                    child: CustomButton(
+                                  22.5,
+                                  "4",
+                                  Colors.blueAccent,
+                                  onClick: () {
+                                    controller.addChar("4");
+                                  },
+                                )),
+                                Expanded(
+                                    child: CustomButton(
+                                  22.5,
+                                  "5",
+                                  Colors.blueAccent,
+                                  onClick: () {
+                                    controller.addChar("5");
+                                  },
+                                )),
+                                Expanded(
+                                    child: CustomButton(
+                                  22.5,
+                                  "6",
+                                  Colors.blueAccent,
+                                  onClick: () {
+                                    controller.addChar("6");
+                                  },
+                                )),
                               ]),
                           Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Expanded(child: CustomButton(22.5, "1",Colors.blueAccent)),
-                                Expanded(child: CustomButton(22.5, "2",Colors.blueAccent)),
-                                Expanded(child: CustomButton(22.5, "3",Colors.blueAccent)),
+                                Expanded(
+                                    child: CustomButton(
+                                  22.5,
+                                  "1",
+                                  Colors.blueAccent,
+                                  onClick: () {
+                                    controller.addChar("1");
+                                  },
+                                )),
+                                Expanded(
+                                    child: CustomButton(
+                                  22.5,
+                                  "2",
+                                  Colors.blueAccent,
+                                  onClick: () {
+                                    controller.addChar("2");
+                                  },
+                                )),
+                                Expanded(
+                                    child: CustomButton(
+                                  22.5,
+                                  "3",
+                                  Colors.blueAccent,
+                                  onClick: () {
+                                    controller.addChar("3");
+                                  },
+                                )),
                               ]),
                           Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Expanded(child: CustomButton(22.5, "0",Colors.blueAccent)),
-                                Expanded(child: CustomButton(22.5, ".",Colors.blueAccent)),
-                                Expanded(child: CustomButton(22.5, "=",Colors.blueAccent)),
+                                Expanded(
+                                    child: CustomButton(
+                                  22.5,
+                                  "0",
+                                  Colors.blueAccent,
+                                  onClick: () {
+                                    controller.addChar("0");
+                                  },
+                                )),
+                                Expanded(
+                                    child: CustomButton(
+                                  22.5,
+                                  ".",
+                                  Colors.blueAccent,
+                                  onClick: () {
+                                    controller.addChar(".");
+                                  },
+                                )),
+                                Expanded(
+                                    child: CustomButton(
+                                  22.5,
+                                  "=",
+                                  Colors.blueAccent,
+                                  onClick: () {
+                                    controller.evaluteExpration();
+                                  },
+                                )),
                               ]),
                         ],
                       ),
@@ -113,27 +225,47 @@ class _SimpleCalculatorScreenState extends State<SimpleCalculatorScreen> {
                               ),
                               onPressed: () {
                                 setState(() {
-                                  double firstValue =
-                                      double.parse(teFirstValue.text);
-                                  double secondValue =
-                                      double.parse(teSecondValue.text);
-                                  double answer = firstValue - secondValue;
-                                  Fluttertoast.showToast(
-                                      msg: "Answer: $answer",
-                                      toastLength: Toast.LENGTH_SHORT,
-                                      gravity: ToastGravity.BOTTOM,
-                                      timeInSecForIosWeb: 1,
-                                      backgroundColor: Colors.red,
-                                      textColor: Colors.white,
-                                      fontSize: 16.0);
+                                  controller.removeChar();
                                 });
                               },
                               label: Text(""),
                             ))),
-                            Expanded(child: CustomButton(20, "÷",Colors.orangeAccent)),
-                            Expanded(child: CustomButton(20, "x",Colors.orangeAccent)),
-                            Expanded(child: CustomButton(20, "-",Colors.orangeAccent)),
-                            Expanded(child: CustomButton(20, "+",Colors.orangeAccent)),
+                            Expanded(
+                                child: CustomButton(
+                              20,
+                              "÷",
+                              Colors.orangeAccent,
+                              onClick: () {
+                                controller.addChar("÷");
+                              },
+                            )),
+                            Expanded(
+                                child: CustomButton(
+                              20,
+                              "x",
+                              Colors.orangeAccent,
+                              onClick: () {
+                                controller.addChar("x");
+                              },
+                            )),
+                            Expanded(
+                                child: CustomButton(
+                              20,
+                              "-",
+                              Colors.orangeAccent,
+                              onClick: () {
+                                controller.addChar("-");
+                              },
+                            )),
+                            Expanded(
+                                child: CustomButton(
+                              20,
+                              "+",
+                              Colors.orangeAccent,
+                              onClick: () {
+                                controller.addChar("+");
+                              },
+                            )),
                           ],
                         ),
                         flex: 1),

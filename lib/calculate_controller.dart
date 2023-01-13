@@ -2,28 +2,40 @@ import 'package:get/get.dart';
 import 'package:math_expressions/math_expressions.dart';
 
 class CalculateController extends GetxController {
-
-  String inputExpression = "";
-  String output = "";
+  RxString inputExpression = "".obs;
+  RxString output = "".obs;
 
   evaluteExpration() {
-    String input = inputExpression;
+    String input =
+        inputExpression.value.replaceAll("x", "*").replaceAll("÷", "/");
     Parser parser = Parser();
     Expression expression = parser.parse(input);
     double eval = expression.evaluate(EvaluationType.REAL, ContextModel());
-    output = eval.toString();
+    output.value = eval.toString();
+    update();
   }
 
   addChar(String char) {
-    inputExpression += char;
+    inputExpression.value += char;
+    print(inputExpression);
+    evaluteExpration();
+    update();
   }
 
   removeChar() {
-    inputExpression = inputExpression.substring(0, inputExpression.length - 1);
+    if (inputExpression.value.length > 0) {
+      inputExpression.value =
+          inputExpression.value.substring(0, inputExpression.value.length - 1);
+      evaluteExpration();
+      update();
+    }else{
+      clearExpression();
+    }
   }
 
-  clearExpression(){
-    inputExpression="";
-    output="";
+  clearExpression() {
+    inputExpression.value = "";
+    output.value = "";
+    update();
   }
 }

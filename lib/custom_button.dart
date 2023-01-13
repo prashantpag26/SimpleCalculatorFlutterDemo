@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 
+
 class CustomButton extends StatelessWidget {
-  final MaterialAccentColor color;
   final double paddingValue;
   final String buttonText;
-
-  const CustomButton(this.paddingValue, this.buttonText, this.color);
+  final MaterialAccentColor color;
+  final VoidCallback onClick;
+  const CustomButton(this.paddingValue, this.buttonText, this.color, {Key? key, required this.onClick}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      onPressed: () {
-        print(buttonText);
-      },
+      onPressed: onClick,
       color: color,
       padding: EdgeInsets.all(paddingValue),
       child: Text(
@@ -23,3 +22,4 @@ class CustomButton extends StatelessWidget {
     );
   }
 }
+
