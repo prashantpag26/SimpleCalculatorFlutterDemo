@@ -5,28 +5,29 @@ class CalculateController extends GetxController {
   RxString inputExpression = "".obs;
   RxString output = "".obs;
 
-  evaluteExpration() {
+  evaluateExpressions() {
     String input =
         inputExpression.value.replaceAll("x", "*").replaceAll("÷", "/");
     Parser parser = Parser();
     Expression expression = parser.parse(input);
     double eval = expression.evaluate(EvaluationType.REAL, ContextModel());
-    output.value = eval.toString();
+    var result = eval%1==0 ? eval.round() : double.parse(eval.toStringAsFixed(2));
+    output.value = result.toString();
     update();
   }
 
   addChar(String char) {
     inputExpression.value += char;
     print(inputExpression);
-    evaluteExpration();
+    evaluateExpressions();
     update();
   }
 
   removeChar() {
-    if (inputExpression.value.length > 0) {
+    if (inputExpression.value.length > 1) {
       inputExpression.value =
           inputExpression.value.substring(0, inputExpression.value.length - 1);
-      evaluteExpration();
+      evaluateExpressions();
       update();
     }else{
       clearExpression();

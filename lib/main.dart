@@ -202,7 +202,7 @@ class _SimpleCalculatorScreenState extends State<SimpleCalculatorScreen> {
                                   "=",
                                   Colors.blueAccent,
                                   onClick: () {
-                                    controller.evaluteExpration();
+                                    controller.evaluateExpressions();
                                   },
                                 )),
                               ]),
