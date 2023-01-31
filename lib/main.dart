@@ -51,228 +51,92 @@ class _SimpleCalculatorScreenState extends State<SimpleCalculatorScreen> {
             color: Colors.black,
             child: Column(
               children: [
+                createCustomeTexts(4, 50),
+                createCustomeTexts(1, 30),
                 Expanded(
-                  child: Container(
-                    alignment: Alignment.bottomRight,
-                    padding: EdgeInsets.all(32),
-                    child: Obx(() {
-                      return Text(
-                        controller.inputExpression.value,
-                        style: TextStyle(color: Colors.white, fontSize: 50),
-                      );
-                    }),
-                  ),
                   flex: 4,
-                ),
-                Expanded(
-                  child: Container(
-                    alignment: Alignment.bottomRight,
-                    padding: EdgeInsets.all(32),
-                    child: Obx(() {
-                      return Text(
-                        controller.output.value,
-                        style: TextStyle(color: Colors.white, fontSize: 30),
-                      );
-                    }),
-                  ),
-                  flex: 1,
-                ),
-                Expanded(
                   child: Row(children: [
                     Expanded(
                       child: Column(
                         children: [
                           Row(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                    child: CustomButton(
-                                  22.5,
-                                  "7",
-                                  Colors.blueAccent,
-                                  onClick: () {
-                                    controller.addChar("7");
-                                  },
-                                )),
-                                Expanded(
-                                    child: CustomButton(
-                                  22.5,
-                                  "8",
-                                  Colors.blueAccent,
-                                  onClick: () {
-                                    controller.addChar("8");
-                                  },
-                                )),
-                                Expanded(
-                                    child: CustomButton(
-                                  22.5,
-                                  "9",
-                                  Colors.blueAccent,
-                                  onClick: () {
-                                    controller.addChar("9");
-                                  },
-                                )),
-                              ]),
+                              children: createCustomButtons(
+                                  ["7", "8", "9"], 22.5, Colors.blueAccent)),
                           Row(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                    child: CustomButton(
-                                  22.5,
-                                  "4",
-                                  Colors.blueAccent,
-                                  onClick: () {
-                                    controller.addChar("4");
-                                  },
-                                )),
-                                Expanded(
-                                    child: CustomButton(
-                                  22.5,
-                                  "5",
-                                  Colors.blueAccent,
-                                  onClick: () {
-                                    controller.addChar("5");
-                                  },
-                                )),
-                                Expanded(
-                                    child: CustomButton(
-                                  22.5,
-                                  "6",
-                                  Colors.blueAccent,
-                                  onClick: () {
-                                    controller.addChar("6");
-                                  },
-                                )),
-                              ]),
+                              children: createCustomButtons(
+                                  ["4", "5", "6"], 22.5, Colors.blueAccent)),
                           Row(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                    child: CustomButton(
-                                  22.5,
-                                  "1",
-                                  Colors.blueAccent,
-                                  onClick: () {
-                                    controller.addChar("1");
-                                  },
-                                )),
-                                Expanded(
-                                    child: CustomButton(
-                                  22.5,
-                                  "2",
-                                  Colors.blueAccent,
-                                  onClick: () {
-                                    controller.addChar("2");
-                                  },
-                                )),
-                                Expanded(
-                                    child: CustomButton(
-                                  22.5,
-                                  "3",
-                                  Colors.blueAccent,
-                                  onClick: () {
-                                    controller.addChar("3");
-                                  },
-                                )),
-                              ]),
+                              children: createCustomButtons(
+                                  ["1", "2", "3"], 22.5, Colors.blueAccent)),
                           Row(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Expanded(
-                                    child: CustomButton(
-                                  22.5,
-                                  "0",
-                                  Colors.blueAccent,
-                                  onClick: () {
-                                    controller.addChar("0");
-                                  },
-                                )),
-                                Expanded(
-                                    child: CustomButton(
-                                  22.5,
-                                  ".",
-                                  Colors.blueAccent,
-                                  onClick: () {
-                                    controller.addChar(".");
-                                  },
-                                )),
-                                Expanded(
-                                    child: CustomButton(
-                                  22.5,
-                                  "=",
-                                  Colors.blueAccent,
-                                  onClick: () {
-                                    controller.evaluateExpressions();
-                                  },
-                                )),
-                              ]),
+                              children: createCustomButtons(
+                                  ["0", ".", "="], 22.5, Colors.blueAccent)),
                         ],
                       ),
                       flex: 4,
                     ),
                     Expanded(
                         child: Column(
-                          children: [
-                            Expanded(
-                                child: Container(
-                                    child: ElevatedButton.icon(
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: Colors.orangeAccent,
-                                  padding: EdgeInsets.fromLTRB(27, 20, 27, 20)),
-                              icon: const Icon(
-                                Icons.backspace,
-                                color: Colors.white,
-                              ),
-                              onPressed: () {
-                                setState(() {
-                                  controller.removeChar();
-                                });
-                              },
-                              label: Text(""),
-                            ))),
-                            Expanded(
-                                child: CustomButton(
+                          children: createCustomButtons(
+                              ["", "÷", "x", "-", "+"],
                               20,
-                              "÷",
-                              Colors.orangeAccent,
-                              onClick: () {
-                                controller.addChar("÷");
-                              },
-                            )),
-                            Expanded(
-                                child: CustomButton(
-                              20,
-                              "x",
-                              Colors.orangeAccent,
-                              onClick: () {
-                                controller.addChar("x");
-                              },
-                            )),
-                            Expanded(
-                                child: CustomButton(
-                              20,
-                              "-",
-                              Colors.orangeAccent,
-                              onClick: () {
-                                controller.addChar("-");
-                              },
-                            )),
-                            Expanded(
-                                child: CustomButton(
-                              20,
-                              "+",
-                              Colors.orangeAccent,
-                              onClick: () {
-                                controller.addChar("+");
-                              },
-                            )),
-                          ],
+                              Colors.orangeAccent),
                         ),
                         flex: 1),
                   ]),
-                  flex: 4,
                 )
               ],
             )));
+  }
+
+  Expanded createCustomeTexts(int flexValue, double fontSizeValue) {
+    return Expanded(
+      child: Container(
+        alignment: Alignment.bottomRight,
+        padding: EdgeInsets.all(32),
+        child: Obx(() {
+          return Text(
+            controller.inputExpression.value,
+            style: TextStyle(color: Colors.white, fontSize: fontSizeValue),
+          );
+        }),
+      ),
+      flex: flexValue,
+    );
+  }
+
+  List<Widget> createCustomButtons(
+      List<String> charArray, double padding, MaterialAccentColor color) {
+    List<Widget> buttonList = [];
+    for (String chr in charArray) {
+      if (chr.isEmpty) {
+        buttonList.add(Expanded(
+            child: CustomButton(
+          EdgeInsets.fromLTRB(27, 20, 27, 20),
+          "",
+          color,
+          1,
+          onClick: () {
+            controller.removeChar();
+          },
+        )));
+      } else {
+        buttonList.add(Expanded(
+            child: CustomButton(
+          EdgeInsets.all(padding),
+          chr,
+          color,
+          0,
+          onClick: () {
+            controller.addChar(chr);
+          },
+        )));
+      }
+    }
+    return buttonList;
   }
 }
